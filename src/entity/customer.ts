@@ -1,12 +1,16 @@
 //always auto-validate
+import Address from "./address";
+
 class Customer {
     _id: string;
     _name: string = "";
-    _address: string = "";
+    _address!: Address;
     _active: boolean = true;
 
-    constructor(id: string) {
+    constructor(id: string, name: string) {
         this._id = id;
+        this._name = name;
+        this.validate();
     }
 
     //auto-validade
@@ -21,13 +25,17 @@ class Customer {
     }
 
     activate() {
+        if (this._address === undefined) {
+            throw new Error("Address is mandatory to activa a customer");
+        }
         this._active = true;
     }
 
     deactivate() {
         this._active = false;
     }
-}
 
-//wrong - inconsistent data
-let customer = new Customer("1")
+    set Address(address: Address) {
+        this._address = address;
+    }
+}
