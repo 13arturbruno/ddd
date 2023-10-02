@@ -1,31 +1,33 @@
+//always auto-validate
 class Customer {
     _id: string;
-    _name: string;
-    _address: string;
+    _name: string = "";
+    _address: string = "";
+    _active: boolean = true;
 
-    constructor(id: string, name: string, address: string) {
+    constructor(id: string) {
         this._id = id;
+    }
+
+    //auto-validade
+    validate() {
+        if (this._name.length === 0) throw new Error("Name is required");
+        if (this._id.length === 0) throw new Error("Id is required");
+    }
+
+    changeName(name: string) {
         this._name = name;
-        this._address = address;
+        this.validate();
     }
 
-    get id(): string {
-        return this._id;
+    activate() {
+        this._active = true;
     }
 
-    get name(): string {
-        return this._name;
-    }
-
-    get address(): string {
-        return this._address;
-    }
-
-    set name(name: string) {
-        this._name = name;
-    }
-
-    set address(address: string) {
-        this._address = address;
+    deactivate() {
+        this._active = false;
     }
 }
+
+//wrong - inconsistent data
+let customer = new Customer("1")
