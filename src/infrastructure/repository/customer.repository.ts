@@ -23,7 +23,7 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
         await CustomerModel.update(
             {
                 name: entity.name,
-                street: entity.Address,
+                street: entity.Address.street,
                 number: entity.Address.number,
                 zipcode: entity.Address.zip,
                 city: entity.Address.city,

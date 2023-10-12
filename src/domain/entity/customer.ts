@@ -22,6 +22,10 @@ export default class Customer {
         return this._name;
     }
 
+    get Address(): Address {
+        return this._address;
+      }
+
     get isActive(): boolean {
         return this._active;
     }
