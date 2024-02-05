@@ -1,11 +1,11 @@
-import EventDispatcher from "../../@shared/event/event-dispatcher";
 import EnviaConsoleLog1Handler from "./handler/envia-console-log1-handler";
 import EnviaConsoleLog2Handler from "./handler/envia-console-log2-handler";
 import CustomerCreatedEvent from "./customer-created.event";
-import Customer from "../../customer/entity/customer";
-import Address from "../../customer/value-object/address";
 import EnviaConsoleLogHandler from "./handler/envia-console-log-handler";
 import CustomerUpdatedEvent from "./customer-updated.event";
+import EventDispatcher from "../../../@shared/event/event-dispatcher";
+import Customer from "../../entity/customer";
+import Address from "../../value-object/address";
 
 describe('Customer Events Test', () => {
 
